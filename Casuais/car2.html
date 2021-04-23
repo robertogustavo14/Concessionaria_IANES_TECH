@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edge ST</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="icon" href="../logo.png">
+    <!--MENU-->
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="../login/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../login/css/util.css">
+  <link rel="stylesheet" type="text/css" href="../login/css/main.css">
+<!--===============================================================================================-->
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">    <style>
+        body {
+            margin: auto;
+            background-color: rgb(210,210,210);
+        }
+        IMG.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+    h1 {
+        text-align: center;
+        font-size: 22pt;
+        padding: 30px;
+        font-family: 'Nunito Sans', sans-serif;
+        color: #f8f9fa;
+    }
+    p {color: #ced4da;
+    padding: 0px 30px ;
+    font-size: 14pt;
+    font-family: 'Work Sans', sans-serif;}
+    button {
+    border: none;
+    background-color: rgb(210,210,210);
+  }
+    #carroh{
+        width: 100%;
+    }
+    .sobre {
+        display: inline-flex;
+    }
+    section {
+        margin: auto;
+        padding: 30px 50px;
+    }
+    div {
+        background-color: #252527;
+    }
+    @media only screen and (max-width: 1130px) {
+        .sobre {
+            display: block;
+        }
+        #texto{
+            width: 100%;
+            padding-bottom: 30px;
+        }
+        #img{
+            width: 100%;
+        }
+
+    }
+
+
+    
+    </style>
+</head>
+<body>
+
+<!-- Menu-->
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #252527">
+    <nav class="navbar navbar-dark bg-darknavbar-dark">
+    <a class="navbar-brand" href="../index.html">
+    IANES TECH
+    </a>
+    </nav>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+    
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html" >Home <span class="sr-only">(current)</span></a>
+          </li>
+    
+          <li class="nav-item">
+              <a class="nav-link" href="../Casuais.html" > Populares <span class="sr-only">(current)</span></a>
+          </li>
+    
+          <li class="nav-item">
+              <a class="nav-link" href="../Picapes.html" > Picapes <span class="sr-only">(current)</span></a>
+          </li>
+    
+          <li class="nav-item">
+              <a class="nav-link" href="../Esportivos.html" > Esportivos <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+          <button type="button" class="btn btn-light">
+              <a class="nav-link" href="../Cadastre.html"  class="btn btn-light" style="color: #252527;"> Login/Cadastre-se</a>
+          </button>
+      </div>
+    </nav>
+    
+
+    <h1 style="color: rgb(37, 37, 39); font-size: 30pt; padding-bottom: 40px;" >Cores para Edge ST</h1>
+    <img  id="carroh" src="car2/carro-azul.png" alt="imagem principal" class="displayed">
+    <br>
+    <div style="text-align: center; background-color: rgb(210,210,210);">
+        <button id="car1" value="preto">
+        <img  src="car2/icon-azul.png" alt="cor preto">
+        </button>
+
+        <button id="car2" value="prata">
+        <img src="car2/icon-cinza.png" alt="cor prata">
+        </button>
+
+        <button id="car3" value="vermelho">
+        <img src="car2/icon-preto.png" alt="cor vermelha">
+        </button>
+        <br>
+        
+        <a href="../compra.html">
+        <button type="button" class="btn btn-outline-dark p-3" style= margin-top:30px; id="botao" disabled >Quero essa cor</button>
+        </a>
+    </div>
+    <br><br>
+    <section class="sobre">
+        <div id="texto">
+            <h1 >Tecnologia que traz conforto</h1>
+            <p style="font-size: 18pt;">Com sistema de áudio Premium Sound System By Bang & Olufsen (com 12 auto-falantes), carregamento sem fio e Sync, sua família aproveita todo o trajeto, enquanto você aproveita o conforto na direção deste SUV de performance.</p> 
+        </div>
+        <div>
+            <img src="car2/sobre1.png" id="img">
+        </div>
+    </section>
+    <section class="sobre">
+        <div>
+            <img src="car2/sobre2.png" id="img">
+        </div>
+        <div id="texto">
+            <h1 >Prepare-se para ser o centro da atenção</h1>
+            <p style="font-size: 18pt;"> O design arrojado por dentro e por fora do Novo Edge ST atrai os olhares naturalmente. Com grade exclusiva, roda 21”, escapamento duplo integrado, bancos esportivos exclusivos ST e soleira Ford Performance, ele chega com estilo para fazer parte da família de performance da Ford.</p> 
+        </div>
+        
+    </section>
+
+
+    <script>
+
+            var car1 = document.getElementById ('car1');
+            var carroh = document.getElementById ('carroh');
+            car1.onclick = function() {
+                if(car1.value === 'preto'){
+                    carroh.src = './car2/carro-azul.png'
+                    localStorage.setItem("imagem","./Casuais/car2/carro-azul.png")
+                    localStorage.setItem("preco",parseFloat(351390.00))
+                    localStorage.setItem("nome","Edge ST")
+                    localStorage.setItem("cor","Azul")
+                    ativar()
+  
+                } 
+            }
+            var car2 = document.getElementById ('car2');
+            car2.onclick = function() {
+                if(car2.value === 'prata'){
+                    carroh.src = './car2/carro-cinza.png'
+                    localStorage.setItem("imagem","./Casuais/car2/carro-cinza.png")
+                    localStorage.setItem("preco",parseFloat(351390.00))
+                    localStorage.setItem("nome","Edge ST")
+                    localStorage.setItem("cor","Preto")
+                    ativar()
+                    
+                } 
+            }
+            var car3 = document.getElementById ('car3');
+            car3.onclick = function() {
+                if(car3.value === 'vermelho'){
+                    carroh.src = './car2/carro-preto.png'
+                    localStorage.setItem("imagem","./Casuais/car2/carro-preto.png")
+                    localStorage.setItem("preco",parseFloat(351390.00))
+                    localStorage.setItem("nome","Edge ST")
+                    localStorage.setItem("cor","Cinza")
+                    ativar()
+  
+                } 
+            }
+            function ativar(){
+                var teste = document.getElementById("botao")
+                teste.removeAttribute("disabled")
+            }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</body>
+</html>

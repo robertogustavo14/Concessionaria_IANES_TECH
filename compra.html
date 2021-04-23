@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">    
+    <title>Pedido</title>
+    <link rel="icon" href="../logo.png">
+<!--MENU-->
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="../login/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../login/css/util.css">
+  <link rel="stylesheet" type="text/css" href="../login/css/main.css">
+<!--===============================================================================================-->
+<style>
+  hr{border-color: #dadad8; }
+  #resumo{margin-bottom:50%;}
+  #c1{background-color: white;}
+  #c2{ background-color: #2e2e31;
+  color: azure;}
+  p{color: white;}
+  #erro{
+    background-color: #b22222;
+    color: white;
+  }
+</style>
+
+</head>
+<body>
+    <!-- Menu-->
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #252527">
+    <nav class="navbar navbar-dark bg-darknavbar-dark">
+    <a class="navbar-brand" href="../index.html">
+    IANES TECH
+    </a>
+    </nav>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+    
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html" >Home <span class="sr-only">(current)</span></a>
+          </li>
+    
+          <li class="nav-item">
+              <a class="nav-link" href="./Casuais.html" > Populares <span class="sr-only">(current)</span></a>
+          </li>
+    
+          <li class="nav-item">
+              <a class="nav-link" href="./Picapes.html" > Picapes <span class="sr-only">(current)</span></a>
+          </li>
+    
+          <li class="nav-item">
+              <a class="nav-link" href="./Esportivos.html" > Esportivos <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+          <button type="button" class="btn btn-light">
+              <a class="nav-link" href="./Cadastre.html"  class="btn btn-light" style="color: #252527;"> Login/Cadastre-se</a>
+          </button>
+      </div>
+    </nav>
+    <div  id="tudo" class=" container-fluid row h-100 p-0 m-0 row-cols-md-1 justify-content-center">
+      <div id="c1" class="col-9">
+        <h1 class="text-center mt-4">Ja é quase seu</h1>
+        <img src="" alt="" id="produ" width="100%"  class="mt-5 ">
+        <h1 id="nomecar" class="text-center p-3"></h1> 
+      </div>
+
+      <div id="c2" class="col-lg-3 row-cols-md-1 d-flex align-content-end flex-wrap">
+        <div id="resumo" class="border border-light p-5 col justify-content-center mt-lg-0 mt-3">
+          
+          <h2 class="mb-2">Resumo do pedido</h2>
+           <p class="mb-2">Cupom de desconto:</p>
+           
+            <div class="input-group">
+            <input type="text" class="form-control " placeholder="Digite o cupom aqui" aria-label="Recipient's username" aria-describedby="button-addon2" id="cupom" >
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="cupom()">Validar</button>
+            </div>
+            </div>
+
+           <hr>
+           <p id="precoc">Preço :</p>
+            <p id="desco">Desconto :</p>
+          <p class="mb-2" id="total">Total :</p>
+          <div class="row justify-content-center">
+            
+          <button type="button" class="btn btn-success " onclick="comprar()">Comprar</button>
+          
+          
+          
+      </div>
+      </div>
+    </div>
+    <script>
+      var cor = localStorage.getItem("imagem")
+      var imagem = document.getElementById("produ")
+      imagem.setAttribute('src',cor)
+
+      var precoc = document.getElementById("precoc")
+      var preco = parseFloat (localStorage.getItem("preco"))
+
+      var total2 = preco
+      preco = preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      var total = preco
+      
+      precoc.innerHTML = `Preço: ${preco}`
+
+      var nome = localStorage.getItem("nome")
+      var nomec = document.getElementById("nomecar")
+      
+      var cor2 = localStorage.getItem("cor")
+      
+      nomec.innerHTML = `${nome} - ${cor2}`
+      
+      var totalc = document.getElementById("total")
+      totalc.innerHTML = `Total: ${total}`
+      var desco = document.getElementById("desco")
+      var des = 0
+      function comprar(){
+           var final = document.getElementById("resumo")
+           final.innerHTML = `
+           <h2 class="mb-2">Pedido realizado com sucesso</h2>
+           <p class="mb-2">Obrigado por comprar na IANES TECH</p>
+
+           <hr>
+            <p id="desco">Desconto : ${des.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+          <p class="mb-2" id="total">Total : ${total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+           `
+        }
+
+      function cupom(){
+        var cupom = document.getElementById("cupom").value
+        
+        if (cupom == "20off"){
+          desconto(20)
+        }
+        else if(cupom == "30off"){
+          desconto(30)
+        }
+        else if(cupom == "10off"){
+          desconto(10)
+        }
+        else{
+          alert ("Cupom não encontrado")
+          var cupom2 = document.getElementById("cupom")
+          cupom2.setAttribute("style","background-color:#bb372f;")
+        }
+
+        function desconto(porcento){
+          des = (total2/100)*porcento
+          desco.innerHTML = `Desconto: ${des.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`
+          total = total2 - des
+          totalc.innerHTML = `Total: ${total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`
+          desco.setAttribute("style","color: #148629;")
+        }
+      }
+      
+      
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</body>
+</html>
